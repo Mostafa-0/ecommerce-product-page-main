@@ -11,7 +11,7 @@ function Product(companyName, title, description, price, discount) {
   this.finalPrice = (price - price * (discount / 100)).toFixed(2);
 }
 
-function Products() {
+function Products({ openModal }) {
   const products = [
     new Product(
       "Sneaker Company",
@@ -36,7 +36,7 @@ function Products() {
   return (
     <main className="products">
       <h1 className="sr-only">Sneakers Shop</h1>
-      <Slider />
+      <Slider openModal={openModal} />
 
       {products.map((product) => (
         <div key={product} className="productDetails">

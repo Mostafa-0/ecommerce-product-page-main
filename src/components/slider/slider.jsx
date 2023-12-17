@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./slider.scss";
 
-function Slider() {
+function Slider({ openModal }) {
   const imageUrls = [
     "images/image-product-1.jpg",
     "images/image-product-2.jpg",
@@ -35,12 +35,13 @@ function Slider() {
   return (
     <>
       <div className="slider">
-        <div className="imgDiv">
+        <div className="imgDiv" onClick={openModal}>
           {imageUrls.map((url) => (
             <img
               key={url}
               src={url}
               alt={`image ${imgIndex}`}
+              onClick={() => openModal(imgIndex)}
               style={{ translate: `${-100 * imgIndex}%` }}
             />
           ))}
