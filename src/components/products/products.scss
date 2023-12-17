@@ -1,0 +1,92 @@
+@use "src/variables" as *;
+
+@include screen-size(large) {
+  .products {
+    margin-top: 2rem;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 2rem;
+  }
+}
+
+.productDetails {
+  display: grid;
+  gap: 1rem;
+  @include screen-size(small) {
+    padding: 1rem;
+  }
+  @include screen-size(large) {
+    min-width: 300px;
+    max-width: 400px;
+  }
+}
+
+.priceContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-block: 1rem;
+  font-weight: 700;
+}
+
+.currentPriceContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.finalPrice {
+  font-size: 1.6rem;
+}
+
+.discount {
+  color: $Orange;
+  background-color: $Pale-orange;
+  padding: 0.1rem 0.4rem;
+  border-radius: 6px;
+}
+
+.originalPrice {
+  color: $Grayish-blue;
+}
+
+.buttonsContainer {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 1rem;
+
+  .btnPrimary {
+    svg {
+      transform: scale(0.75);
+      margin-inline: 0.5rem;
+    }
+  }
+
+  @include screen-size(large) {
+    grid-template-columns: 0.6fr 1fr;
+  }
+}
+
+.quantityDiv {
+  background-color: $Light-grayish-blue;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  padding-inline: 0.6rem;
+
+  button {
+    width: 35%;
+    height: 100%;
+    padding: 0.4rem;
+  }
+
+  button:nth-of-type(1) {
+    text-align: left;
+  }
+  button:nth-of-type(2) {
+    text-align: right;
+  }
+}

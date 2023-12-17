@@ -1,0 +1,71 @@
+@use "src/variables" as *;
+
+.slider {
+  @include screen-size(large) {
+    position: relative;
+    max-width: 450px;
+  }
+
+  .imgDiv {
+    width: 100%;
+    display: grid;
+    overflow: hidden;
+    grid-auto-flow: column;
+    grid-auto-columns: 100%;
+    scroll-snap-type: x mandatory;
+
+    @include screen-size(large) {
+      border-radius: 12px;
+    }
+  }
+
+  img {
+    width: 100%;
+    display: block;
+    margin: auto;
+    transition: translate 400ms ease-in-out;
+  }
+
+  #prevBtn,
+  #nextBtn {
+    display: grid;
+    place-items: center;
+    background-color: white;
+    position: absolute;
+    top: 40%;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    @include screen-size(large) {
+      visibility: hidden;
+    }
+  }
+
+  svg {
+    transform: scale(0.8);
+  }
+}
+
+.thumbnails {
+  margin-top: 1.6rem;
+  display: grid;
+  grid-auto-flow: column;
+  gap: 1.6rem;
+  @include screen-size(small) {
+    display: none;
+  }
+}
+
+.thumbnails > * {
+  cursor: pointer;
+  aspect-ratio: 1 / 1;
+  border-radius: 8px;
+}
+
+#prevBtn {
+  left: 4%;
+}
+
+#nextBtn {
+  right: 4%;
+}

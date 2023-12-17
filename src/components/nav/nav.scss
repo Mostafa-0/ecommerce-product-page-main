@@ -1,0 +1,126 @@
+@use "src/variables" as *;
+
+header {
+  position: relative;
+  background-color: white;
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: min(2rem, 4vw);
+  position: sticky;
+  top: 0;
+  z-index: 500;
+
+  #avatar {
+    width: 2rem;
+  }
+
+  svg {
+    fill: #69707d;
+  }
+
+  button:hover svg {
+    fill: black;
+  }
+
+  @include screen-size(small) {
+    padding: 1.2rem;
+
+    #logo {
+      width: 110px;
+    }
+  }
+}
+
+nav {
+  z-index: 5;
+  @include screen-size(small) {
+    background-color: white;
+    position: absolute;
+    padding: 6rem 1rem;
+    width: 60vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    transform: translateX(-105%);
+    transition: transform 200ms ease-in-out;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem 1rem;
+  }
+}
+
+.headerRight {
+  display: flex;
+  gap: min(2rem, 5vw);
+  justify-self: right;
+}
+
+.toggleBtn {
+  z-index: 5;
+}
+
+.active {
+  transform: translateX(0);
+}
+
+@include screen-size(small) {
+  a {
+    font-weight: 700;
+  }
+}
+
+@include screen-size(large) {
+  header {
+    grid-template-columns: 0.8fr 1.8fr 2.6fr;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid $Grayish-blue;
+
+    #logo {
+      order: -1;
+    }
+
+    #avatar {
+      width: 3rem;
+    }
+
+    ul {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    a {
+      color: $Dark-grayish-blue;
+      position: relative;
+    }
+
+    a:hover {
+      color: black;
+    }
+
+    a::before {
+      content: "";
+      position: absolute;
+      bottom: -46.2px;
+      left: 0;
+      right: 0;
+      width: 100%;
+      transform: scaleX(0);
+      height: 3.5px;
+      background-color: $Orange;
+      transition: transform 150ms ease-in-out;
+    }
+
+    a:hover::before {
+      transform: scaleX(100%);
+    }
+
+    .toggleBtn {
+      display: none;
+    }
+  }
+}

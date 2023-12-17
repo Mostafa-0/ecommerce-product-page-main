@@ -1,0 +1,40 @@
+@use "src/variables" as *;
+
+dialog {
+  border: none;
+  margin: auto;
+  background: none;
+  overflow: visible;
+}
+
+dialog::backdrop {
+  background: rgb(0, 0, 0, 0.75);
+}
+
+.closeModal {
+  margin-left: 95%;
+  margin-block: 1rem;
+
+  svg {
+    fill: #fff;
+  }
+
+  svg:hover {
+    fill: $Orange;
+  }
+}
+
+dialog .slider {
+  #nextBtn {
+    right: -4%;
+  }
+
+  #prevBtn {
+    left: -4%;
+  }
+}
+
+dialog .slider #prevBtn,
+dialog .slider #nextBtn {
+  visibility: visible;
+}
