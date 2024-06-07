@@ -40,7 +40,7 @@ function Nav() {
         <ul>
           {nav.map((item) => (
             <li key={item}>
-              <a href="\">{item}</a>
+              <a href="/">{item}</a>
             </li>
           ))}
         </ul>
