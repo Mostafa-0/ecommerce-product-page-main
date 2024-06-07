@@ -2,6 +2,8 @@ import { useContext, useState } from "react";
 import Slider from "../slider/slider";
 import "./products.scss";
 import { cartContext } from "../../context/cartContext";
+import minusIcon from "/images/icon-minus.svg";
+import plusIcon from "/images/icon-plus.svg";
 
 function Product(id, companyName, title, description, price, discount) {
   this.id = id;
@@ -30,10 +32,12 @@ function Products({ openModal }) {
     useContext(cartContext);
   const [cartBtns, setCartBtns] = useState("");
   const updateBtnText = (productId) => {
-    setCartBtns((prev) => ({ ...prev, [productId]: "Added!" }));
-    setTimeout(() => {
-      setCartBtns((prev) => ({ ...prev, [productId]: "Add To Cart" }));
-    }, 1000);
+    if (amount > 0) {
+      setCartBtns((prev) => ({ ...prev, [productId]: "Added!" }));
+      setTimeout(() => {
+        setCartBtns((prev) => ({ ...prev, [productId]: "Add To Cart" }));
+      }, 1000);
+    }
   };
 
   return (
@@ -58,11 +62,11 @@ function Products({ openModal }) {
           <div className="buttonsContainer">
             <div className="quantityDiv">
               <button onClick={() => decreaseAmount()}>
-                <img src="images\icon-minus.svg" alt="Decrease quantity" />
+                <img src={minusIcon} alt="Decrease quantity" />
               </button>
               <strong className="count">{amount}</strong>
               <button onClick={() => increaseAmount()}>
-                <img src="images\icon-plus.svg" alt="Increase quantity" />
+                <img src={plusIcon} alt="Increase quantity" />
               </button>
             </div>
             <button

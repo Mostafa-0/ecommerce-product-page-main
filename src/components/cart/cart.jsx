@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import "./cart.scss";
 import { cartContext } from "../../context/cartContext";
+import thumb from "/images/image-product-1-thumbnail.jpg";
 
 function Cart() {
   const { totalPrice, cart, removeFromCart } = useContext(cartContext);
@@ -14,7 +15,7 @@ function Cart() {
         cart.map((item) => (
           <div key={item.id} className="productContainer">
             <div className="productDetails">
-              <img src="images\image-product-1-thumbnail.jpg" alt="" />
+              <img src={thumb} alt="" />
               <div>
                 <p>{item.title}</p>
                 <div>
@@ -28,7 +29,10 @@ function Cart() {
                 </div>
               </div>
 
-              <button className="delete-icon" onClick={() => removeFromCart(item.id)}>
+              <button
+                className="delete-icon"
+                onClick={() => removeFromCart(item.id)}
+              >
                 <svg width="14" height="16" xmlns="http://www.w3.org/2000/svg">
                   <defs>
                     <path

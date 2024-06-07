@@ -2,6 +2,8 @@ import "./nav.scss";
 import Cart from "../cart/cart.jsx";
 import { useContext, useEffect, useRef } from "react";
 import { cartContext } from "../../context/cartContext.jsx";
+import logo from "/images/logo.svg";
+import avatar from "/images/image-avatar.png"
 
 function Nav() {
   const { cartAmount } = useContext(cartContext);
@@ -54,7 +56,7 @@ function Nav() {
         </svg>
       </button>
 
-      <img id="logo" src="images\logo.svg" alt="Sneakers-Logo" />
+      <img id="logo" src={logo} alt="Sneakers-Logo" />
 
       <div className="headerRight">
         <button ref={cartBtn} className="cartBtn" onClick={openCart}>
@@ -69,7 +71,7 @@ function Nav() {
         <Cart />
 
         <button>
-          <img id="avatar" src="images/image-avatar.png" alt="Avatar" />
+          <img id="avatar" src={avatar} alt="Avatar" />
         </button>
       </div>
     </header>
