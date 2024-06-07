@@ -48,7 +48,7 @@ function Products({ openModal }) {
       {products.map((product) => (
         <div key={product.id} className="productDetails">
           <div className="companyName">{product.companyName}</div>
-          <h3>{product.title}</h3>
+          <h2>{product.title}</h2>
           <p className="">{product.description}</p>
 
           <div className="priceContainer">
