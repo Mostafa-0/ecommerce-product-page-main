@@ -66,6 +66,7 @@ function Nav() {
               fillRule="nonzero"
             />
           </svg>
+          <span className="sr-only">Cart</span>
           {cartAmount > 0 && <div className="cartAmount">{cartAmount}</div>}
         </button>
         <Cart />
