@@ -1,33 +1,9 @@
-import { useRef } from "react";
 import "./modal.scss";
 import Slider from "../slider/slider";
 
-function Modal() {
-  const modal = useRef();
-
-  const openModal = () => {
-    modal.current.showModal();
-  };
-
-  const closeModal = () => {
-    modal.current.close();
-  };
-
-  const style = {
-    position: "absolute",
-    top: "30%",
-    left: "19%",
-    width: "400px",
-    height: "400px",
-    border: "1px solid black",
-    opacity: 0,
-  };
-
+function Modal({ closeModal, modal }) {
   return (
     <>
-      <button onClick={openModal} style={style}>
-        Open
-      </button>
       <dialog ref={modal}>
         <button className="closeModal" onClick={closeModal}>
           <svg width="14" height="15" xmlns="http://www.w3.org/2000/svg">

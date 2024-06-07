@@ -16,6 +16,11 @@ header {
     width: 2rem;
   }
 
+  #avatar:hover {
+    outline: 2px solid $Orange;
+    border-radius: 100%;
+  }
+
   svg {
     fill: #69707d;
   }
@@ -34,7 +39,7 @@ header {
 }
 
 nav {
-  z-index: 5;
+  z-index: 999;
   @include screen-size(small) {
     background-color: white;
     position: absolute;
@@ -61,11 +66,33 @@ nav {
 }
 
 .toggleBtn {
-  z-index: 5;
+  z-index: 1000;
 }
 
 .active {
   transform: translateX(0);
+}
+
+.cartBtn {
+  position: relative;
+}
+
+.cartAmount {
+  background-color: $Orange;
+  font-size: 10px;
+  color: white;
+  display: grid;
+  place-content: center;
+  place-items: center;
+  width: 19px;
+  height: 13px;
+  border-radius: 10px;
+  position: absolute;
+  top: 6px;
+  right: -5px;
+  @include screen-size(small){
+  top: 0;
+  }
 }
 
 @include screen-size(small) {

@@ -1,22 +1,34 @@
 @use "src/variables.scss" as *;
 
 .cartDiv {
-  display: none;
-  grid-template-rows: 60px 200px;
-  position: absolute;
-  right: 0;
-  left: 0;
-  top: 80px;
-  margin: auto;
+  visibility: hidden;
   background-color: white;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  position: absolute;
+  z-index: 50;
+  left: 50%;
+  right: 50%;
+  top: 80px;
+  transform: translateX(-50%);
   width: 95%;
-  max-width: 356px;
-  max-height: 300px;
+  min-height: 250px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   border-radius: 10px;
-  z-index: 1000;
+  display: grid;
+  max-width: 380px;
+  @include screen-size(large) {
+    right: -5%;
+    top: 60px;
+    left: unset;
+    transform: unset;
+  }
+
+  .empty-card-p {
+    text-align: center;
+    font-weight: bold;
+  }
 
   h4 {
+    height: fit-content;
     border-bottom: 1px solid rgba(100, 100, 111, 0.2);
     padding: 1.5rem;
   }
@@ -30,19 +42,34 @@
   svg {
     fill: #c3cad9;
   }
-  
+
   button:hover svg {
     fill: rgb(232, 0, 0);
   }
 
-  .container {
-    overflow-y: scroll;
-    padding: 1.5rem;
+  .productContainer {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 1.5rem;
+    gap: 1em;
+    padding: 1.2em;
   }
+
+  .productDetails {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 0;
+  }
+  .price {
+    color: $Dark-grayish-blue;
+    margin-right: 0.4em;
+  }
+}
+
+.active {
+  visibility: visible;
 }
 
 .container::-webkit-scrollbar {
@@ -57,12 +84,4 @@
 .container::-webkit-scrollbar-track {
   margin-block: 0.8rem;
   background: inherit;
-}
-
-.productDetails {
-  font-size: 14px;
-  font-weight: 400;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
 }

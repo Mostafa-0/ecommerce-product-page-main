@@ -71,8 +71,8 @@ a {
   border-radius: 8px;
 }
 
-.btnPrimary:hover {
-  opacity: 70%;
+.btnPrimary:hover, .products button:hover, .thumbnail:hover {
+  opacity: 75%;
 }
 
 .sr-only:not(:focus):not(:active) {
