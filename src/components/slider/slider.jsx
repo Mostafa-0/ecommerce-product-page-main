@@ -11,10 +11,9 @@ import thumb4 from "/images/image-product-4-thumbnail.jpg";
 
 function Slider({ openModal }) {
   const imageUrls = [img1, img2, img3, img4];
-
   const thumbnailUrls = [thumb1, thumb2, thumb3, thumb4];
-
   const [imgIndex, setImage] = useState(0);
+  const cursorStyle = openModal ? { cursor: "pointer" } : null;
 
   function showPrevImage() {
     setImage((index) => {
@@ -30,7 +29,6 @@ function Slider({ openModal }) {
     });
   }
 
-  const cursorStyle = openModal ? { cursor: "pointer" } : null;
   return (
     <>
       <div className="slider">
@@ -71,11 +69,16 @@ function Slider({ openModal }) {
         <div className="thumbnails">
           {thumbnailUrls.map((url, index) => (
             <img
-            className="thumbnail"
+              className="thumbnail"
               key={index}
               src={url}
               alt={`thumbnail ${index}`}
               onClick={() => setImage(index)}
+              style={
+                index == imgIndex
+                  ? { outline: "2px solid hsl(26, 100%, 55%)", opacity: "75%" }
+                  : {}
+              }
             />
           ))}
         </div>

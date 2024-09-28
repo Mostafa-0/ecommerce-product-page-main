@@ -10,7 +10,6 @@
   box-sizing: border-box;
   font-family: "Kumbh Sans", sans-serif;
   font-size: 16px;
-  // border: 1px solid grey;
 }
 
 body {
@@ -64,7 +63,7 @@ a {
   border-radius: 8px;
 }
 
-.btnPrimary:hover, .products button:hover, .thumbnail:hover {
+.btnPrimary:hover, .products button:hover {
   opacity: 75%;
 }
 
